@@ -40,9 +40,11 @@
 
 - Какие сетевые службы в ней разрешены?
 Службы-ftp,ssh,telnet,smtp,domain,http,rpcbind,netbios-ssn,exec,shell,java-rmi,bindshell,nfs,mysql,postresql,xll,irc,ajp13,login?(ответ не гарантированный)
+
 ![Скриншот сканирования](https://github.com/Toazter426/vun_hw/blob/main/img/vun1.png)
+
 - Какие уязвимости были вами обнаружены? (список со ссылками: достаточно трёх уязвимостей)
- ```
+```
  https://www.exploit-db.com/exploits/51009
  https://www.exploit-db.com/exploits/50531
  https://www.exploit-db.com/exploits/50464
@@ -63,15 +65,22 @@
 SY- Nmap посылает SYN-пакет, как бы намереваясь открыть настоящее соединение, и ожидает ответ. Наличие флагов SYN|ACK в ответе указывает на то, что порт удаленной машины открыт и прослушивается. Флаг RST в ответе означает обратное. Если Nmap принял пакет SYN|ACK, то в ответ немедленно отправляет RST-пакет для сброса еще не установленного соединения.
 
 ![sS](https://github.com/Toazter426/vun_hw/blob/main/img/vun2.png)
+![sSwire](https://github.com/Toazter426/vun_hw/blob/main/img/wire1.png)
+
 FIN - Nmap посылает FIN-пакет, в TCP заголовок ставится флаг FIN. Согласно RFC 793, на прибывший FIN-пакет на закрытый порт сервер должен ответить пакетом RST. FIN-пакеты на открытые порты должны игнорироваться сервером. По этому различию становится возможным отличить закрытый порт от открытого. 
 
 ![sF](https://github.com/Toazter426/vun_hw/blob/main/img/vun3.png)
+![sFwire](https://github.com/Toazter426/vun_hw/blob/main/img/win2.png)
+
 Xmas - Устанавливаются FIN, PSH и URG флаги. Если в результате FIN-сканирования мы получили список открытых портов, то это не Windows. Если же все эти методы выдали результат, что все порты закрыты, а SYN-сканирование обнаружило открытые порты, то мы скорей всего имеете дело с ОС Windows, Cisco, BSDI, IRIX, HP/UX и MVS. Все эти ОС не отправляют RST-пакеты.
 
 ![sX](https://github.com/Toazter426/vun_hw/blob/main/img/vun4.png)
+![sXwire](https://github.com/Toazter426/vun_hw/blob/main/img/win3.png)
+
 UDP - На каждый порт сканируемой машины отправляется UDP-пакет без данных. Этот метод используется для определения, какие UDP-порты на сканируемом хосте являются открытыми.Если в ответ было получено ICMP-сообщение "порт недоступен", это означает, что порт закрыт. В противном случае предполагается, что сканируемый порт открыт.
 
 ![sU](https://github.com/Toazter426/vun_hw/blob/main/img/vun1.png)
+![sUwire](https://github.com/Toazter426/vun_hw/blob/main/img/wire4.png)
 
 
 
